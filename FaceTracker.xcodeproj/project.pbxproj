@@ -1,0 +1,340 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		000B54FD142FE5370076F5A1 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = 000B54FC142FE5370076F5A1 /* haarcascade_frontalface_alt2.xml */; };
+		000B5501142FEA870076F5A1 /* OpenCV.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 000B5500142FEA870076F5A1 /* OpenCV.framework */; };
+		00427A44142B956600E5019E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A43142B956600E5019E /* UIKit.framework */; };
+		00427A46142B956600E5019E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A45142B956600E5019E /* Foundation.framework */; };
+		00427A48142B956600E5019E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A47142B956600E5019E /* CoreGraphics.framework */; };
+		00427A4E142B956600E5019E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 00427A4C142B956600E5019E /* InfoPlist.strings */; };
+		00427A50142B956600E5019E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 00427A4F142B956600E5019E /* main.m */; };
+		00427A54142B956600E5019E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00427A53142B956600E5019E /* AppDelegate.mm */; };
+		00427A57142B956600E5019E /* VideoCaptureViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00427A56142B956600E5019E /* VideoCaptureViewController.mm */; };
+		00427A62142B960D00E5019E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A61142B960D00E5019E /* AVFoundation.framework */; };
+		00427A64142B9A9700E5019E /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A63142B9A9700E5019E /* CoreMedia.framework */; };
+		00427A66142B9AEC00E5019E /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00427A65142B9AEC00E5019E /* CoreVideo.framework */; };
+		00DE37361430E806004993CC /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 00DE37351430E806004993CC /* QuartzCore.framework */; };
+		00E53780142BE66400F30526 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 00E5377F142BE66300F30526 /* libz.dylib */; };
+		00E53783142BE6D600F30526 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00E53782142BE6D600F30526 /* UIImage+OpenCV.mm */; };
+		00E53787142BFEE600F30526 /* DemoVideoCaptureViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 00E53785142BFEE600F30526 /* DemoVideoCaptureViewController.mm */; };
+		00E53788142BFEE700F30526 /* DemoVideoCaptureViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00E53786142BFEE600F30526 /* DemoVideoCaptureViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		000B54FC142FE5370076F5A1 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
+		000B5500142FEA870076F5A1 /* OpenCV.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = OpenCV.framework; sourceTree = "<group>"; };
+		00427A3F142B956600E5019E /* FaceTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		00427A43142B956600E5019E /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		00427A45142B956600E5019E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		00427A47142B956600E5019E /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		00427A4B142B956600E5019E /* FaceTracker-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FaceTracker-Info.plist"; sourceTree = "<group>"; };
+		00427A4D142B956600E5019E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		00427A4F142B956600E5019E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		00427A51142B956600E5019E /* FaceTracker-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceTracker-Prefix.pch"; sourceTree = "<group>"; };
+		00427A52142B956600E5019E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		00427A53142B956600E5019E /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
+		00427A55142B956600E5019E /* VideoCaptureViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoCaptureViewController.h; sourceTree = "<group>"; };
+		00427A56142B956600E5019E /* VideoCaptureViewController.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = VideoCaptureViewController.mm; sourceTree = "<group>"; };
+		00427A61142B960D00E5019E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		00427A63142B9A9700E5019E /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		00427A65142B9AEC00E5019E /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		0068464114339E2C000A8404 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.markdown; sourceTree = "<group>"; };
+		00DE37351430E806004993CC /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		00E5377F142BE66300F30526 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		00E53781142BE6D600F30526 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		00E53782142BE6D600F30526 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		00E53784142BFEE600F30526 /* DemoVideoCaptureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoVideoCaptureViewController.h; sourceTree = "<group>"; };
+		00E53785142BFEE600F30526 /* DemoVideoCaptureViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = DemoVideoCaptureViewController.mm; sourceTree = "<group>"; };
+		00E53786142BFEE600F30526 /* DemoVideoCaptureViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoVideoCaptureViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00427A3C142B956600E5019E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00DE37361430E806004993CC /* QuartzCore.framework in Frameworks */,
+				00E53780142BE66400F30526 /* libz.dylib in Frameworks */,
+				00427A66142B9AEC00E5019E /* CoreVideo.framework in Frameworks */,
+				00427A64142B9A9700E5019E /* CoreMedia.framework in Frameworks */,
+				00427A62142B960D00E5019E /* AVFoundation.framework in Frameworks */,
+				00427A44142B956600E5019E /* UIKit.framework in Frameworks */,
+				00427A46142B956600E5019E /* Foundation.framework in Frameworks */,
+				00427A48142B956600E5019E /* CoreGraphics.framework in Frameworks */,
+				000B5501142FEA870076F5A1 /* OpenCV.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		000B551014326D2F0076F5A1 /* UIImage Additions */ = {
+			isa = PBXGroup;
+			children = (
+				00E53781142BE6D600F30526 /* UIImage+OpenCV.h */,
+				00E53782142BE6D600F30526 /* UIImage+OpenCV.mm */,
+			);
+			name = "UIImage Additions";
+			sourceTree = "<group>";
+		};
+		00427A34142B956500E5019E = {
+			isa = PBXGroup;
+			children = (
+				0068464114339E2C000A8404 /* README.markdown */,
+				00427A49142B956600E5019E /* FaceTracker */,
+				00427A42142B956600E5019E /* Frameworks */,
+				00427A40142B956600E5019E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		00427A40142B956600E5019E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				00427A3F142B956600E5019E /* FaceTracker.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		00427A42142B956600E5019E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				00E5377F142BE66300F30526 /* libz.dylib */,
+				000B5500142FEA870076F5A1 /* OpenCV.framework */,
+				00DE37351430E806004993CC /* QuartzCore.framework */,
+				00427A65142B9AEC00E5019E /* CoreVideo.framework */,
+				00427A63142B9A9700E5019E /* CoreMedia.framework */,
+				00427A61142B960D00E5019E /* AVFoundation.framework */,
+				00427A43142B956600E5019E /* UIKit.framework */,
+				00427A45142B956600E5019E /* Foundation.framework */,
+				00427A47142B956600E5019E /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		00427A49142B956600E5019E /* FaceTracker */ = {
+			isa = PBXGroup;
+			children = (
+				00427A52142B956600E5019E /* AppDelegate.h */,
+				00427A53142B956600E5019E /* AppDelegate.mm */,
+				00427A55142B956600E5019E /* VideoCaptureViewController.h */,
+				00427A56142B956600E5019E /* VideoCaptureViewController.mm */,
+				00E53784142BFEE600F30526 /* DemoVideoCaptureViewController.h */,
+				00E53785142BFEE600F30526 /* DemoVideoCaptureViewController.mm */,
+				00E53786142BFEE600F30526 /* DemoVideoCaptureViewController.xib */,
+				000B551014326D2F0076F5A1 /* UIImage Additions */,
+				00F85B05142D54020099F79C /* Resources */,
+				00427A4A142B956600E5019E /* Supporting Files */,
+			);
+			path = FaceTracker;
+			sourceTree = "<group>";
+		};
+		00427A4A142B956600E5019E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				00427A4B142B956600E5019E /* FaceTracker-Info.plist */,
+				00427A4C142B956600E5019E /* InfoPlist.strings */,
+				00427A4F142B956600E5019E /* main.m */,
+				00427A51142B956600E5019E /* FaceTracker-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		00F85B05142D54020099F79C /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				000B54FC142FE5370076F5A1 /* haarcascade_frontalface_alt2.xml */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00427A3E142B956600E5019E /* FaceTracker */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00427A5D142B956600E5019E /* Build configuration list for PBXNativeTarget "FaceTracker" */;
+			buildPhases = (
+				00427A3B142B956600E5019E /* Sources */,
+				00427A3C142B956600E5019E /* Frameworks */,
+				00427A3D142B956600E5019E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FaceTracker;
+			productName = VidTest;
+			productReference = 00427A3F142B956600E5019E /* FaceTracker.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		00427A36142B956500E5019E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = 00427A39142B956500E5019E /* Build configuration list for PBXProject "FaceTracker" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 00427A34142B956500E5019E;
+			productRefGroup = 00427A40142B956600E5019E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				00427A3E142B956600E5019E /* FaceTracker */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00427A3D142B956600E5019E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00427A4E142B956600E5019E /* InfoPlist.strings in Resources */,
+				00E53788142BFEE700F30526 /* DemoVideoCaptureViewController.xib in Resources */,
+				000B54FD142FE5370076F5A1 /* haarcascade_frontalface_alt2.xml in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00427A3B142B956600E5019E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00427A50142B956600E5019E /* main.m in Sources */,
+				00427A54142B956600E5019E /* AppDelegate.mm in Sources */,
+				00427A57142B956600E5019E /* VideoCaptureViewController.mm in Sources */,
+				00E53783142BE6D600F30526 /* UIImage+OpenCV.mm in Sources */,
+				00E53787142BFEE600F30526 /* DemoVideoCaptureViewController.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		00427A4C142B956600E5019E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				00427A4D142B956600E5019E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		00427A5B142B956600E5019E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		00427A5C142B956600E5019E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		00427A5E142B956600E5019E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FaceTracker/FaceTracker-Prefix.pch";
+				INFOPLIST_FILE = "FaceTracker/FaceTracker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = FaceTracker;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		00427A5F142B956600E5019E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FaceTracker/FaceTracker-Prefix.pch";
+				INFOPLIST_FILE = "FaceTracker/FaceTracker-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				PRODUCT_NAME = FaceTracker;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00427A39142B956500E5019E /* Build configuration list for PBXProject "FaceTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00427A5B142B956600E5019E /* Debug */,
+				00427A5C142B956600E5019E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		00427A5D142B956600E5019E /* Build configuration list for PBXNativeTarget "FaceTracker" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00427A5E142B956600E5019E /* Debug */,
+				00427A5F142B956600E5019E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 00427A36142B956500E5019E /* Project object */;
+}
