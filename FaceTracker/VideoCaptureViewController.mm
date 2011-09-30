@@ -23,7 +23,7 @@ const int kFrameTimeBufferSize = 5;
 @interface VideoCaptureViewController ()
 - (BOOL)createCaptureSessionForCamera:(NSInteger)camera qualityPreset:(NSString *)qualityPreset grayscale:(BOOL)grayscale;
 - (void)destroyCaptureSession;
-- (void)processFrame:(cv::Mat&)mat videoFrame:(CGRect)frame videoOrientation:(AVCaptureVideoOrientation)orientation;
+- (void)processFrame:(cv::Mat&)mat videoRect:(CGRect)rect videoOrientation:(AVCaptureVideoOrientation)orientation;
 - (void)updateDebugInfo;
 
 @property (nonatomic, assign) float fps;
@@ -36,6 +36,10 @@ const int kFrameTimeBufferSize = 5;
 @synthesize camera = _camera;
 @synthesize captureGrayscale = _captureGrayscale;
 @synthesize qualityPreset = _qualityPreset;
+@synthesize captureSession = _captureSession;
+@synthesize captureDevice = _captureDevice;
+@synthesize videoOutput = _videoOutput;
+@synthesize videoPreviewLayer = _videoPreviewLayer;
 
 @dynamic showDebugInfo;
 @dynamic torchOn;
@@ -197,7 +201,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     CVPixelBufferRef pixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     OSType format = CVPixelBufferGetPixelFormatType(pixelBuffer);
-    CGRect videoFrame = CGRectMake(0.0f, 0.0f, CVPixelBufferGetWidth(pixelBuffer), CVPixelBufferGetHeight(pixelBuffer));
+    CGRect videoRect = CGRectMake(0.0f, 0.0f, CVPixelBufferGetWidth(pixelBuffer), CVPixelBufferGetHeight(pixelBuffer));
     AVCaptureVideoOrientation videoOrientation = [[[_videoOutput connections] objectAtIndex:0] videoOrientation];
     
     if (format == kCVPixelFormatType_420YpCbCr8BiPlanarFullRange) {
@@ -205,9 +209,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         CVPixelBufferLockBaseAddress(pixelBuffer, 0);
         void *baseaddress = CVPixelBufferGetBaseAddressOfPlane(pixelBuffer, 0);
         
-        cv::Mat mat(videoFrame.size.height, videoFrame.size.width, CV_8UC1, baseaddress, 0);
+        cv::Mat mat(videoRect.size.height, videoRect.size.width, CV_8UC1, baseaddress, 0);
         
-        [self processFrame:mat videoFrame:videoFrame videoOrientation:videoOrientation];
+        [self processFrame:mat videoRect:videoRect videoOrientation:videoOrientation];
         
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0); 
     }
@@ -216,9 +220,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         CVPixelBufferLockBaseAddress(pixelBuffer, 0);
         void *baseaddress = CVPixelBufferGetBaseAddress(pixelBuffer);
         
-        cv::Mat mat(videoFrame.size.height, videoFrame.size.width, CV_8UC4, baseaddress, 0);
+        cv::Mat mat(videoRect.size.height, videoRect.size.width, CV_8UC4, baseaddress, 0);
         
-        [self processFrame:mat videoFrame:videoFrame videoOrientation:videoOrientation];
+        [self processFrame:mat videoRect:videoRect videoOrientation:videoOrientation];
         
         CVPixelBufferUnlockBaseAddress(pixelBuffer, 0);    
     }
@@ -277,11 +281,11 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 //
 // mat: The frame as an OpenCV::Mat object. The matrix will have 1 channel for grayscale frames and 4 channels for
 //      BGRA frames. (Use -[VideoCaptureViewController setGrayscale:])
-//
+// rect: A CGRect describing the video frame dimensions
 // orientation: Will generally by AVCaptureVideoOrientationLandscapeRight for the back camera and
 //              AVCaptureVideoOrientationLandscapeRight for the front camera
 //
-- (void)processFrame:(cv::Mat &)mat videoFrame:(CGRect)frame videoOrientation:(AVCaptureVideoOrientation)orientation
+- (void)processFrame:(cv::Mat &)mat videoRect:(CGRect)rect videoOrientation:(AVCaptureVideoOrientation)orientation
 {
 
 }

@@ -24,8 +24,8 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
 
 @interface DemoVideoCaptureViewController ()
 - (void)displayFaces:(const std::vector<cv::Rect> &)faces 
-       forVideoFrame:(CGRect)frame 
-    videoOrientation:(AVCaptureVideoOrientation)videOrientation;
+       forVideoRect:(CGRect)rect 
+    videoOrientation:(AVCaptureVideoOrientation)videoOrientation;
 @end
 
 @implementation DemoVideoCaptureViewController
@@ -93,21 +93,21 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
 
 // MARK: VideoCaptureViewController overrides
 
-- (void)processFrame:(cv::Mat &)mat videoFrame:(CGRect)frame videoOrientation:(AVCaptureVideoOrientation)videOrientation
+- (void)processFrame:(cv::Mat &)mat videoRect:(CGRect)rect videoOrientation:(AVCaptureVideoOrientation)videOrientation
 {
     // Shrink video frame to 320X240
     cv::resize(mat, mat, cv::Size(), 0.5f, 0.5f, CV_INTER_LINEAR);
-    frame.size.width /= 2.0f;
-    frame.size.height /= 2.0f;
+    rect.size.width /= 2.0f;
+    rect.size.height /= 2.0f;
     
     // Rotate video frame by 90deg to portrait by combining a transpose and a flip
     // Note that AVCaptureVideoDataOutput connection does NOT support hardware-accelerated
     // rotation and mirroring via videoOrientation and setVideoMirrored properties so we
     // need to do the rotation in software here.
     cv::transpose(mat, mat);
-    CGFloat temp = frame.size.width;
-    frame.size.width = frame.size.height;
-    frame.size.height = temp;
+    CGFloat temp = rect.size.width;
+    rect.size.width = rect.size.height;
+    rect.size.height = temp;
     videOrientation = AVCaptureVideoOrientationPortrait;
     
     if (_camera == 0)
@@ -127,15 +127,15 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
     // Dispatch updating of face markers to main queue
     dispatch_sync(dispatch_get_main_queue(), ^{
         [self displayFaces:faces
-             forVideoFrame:frame
+             forVideoRect:rect
           videoOrientation:videOrientation];    
     });
 }
 
 // Update face markers given vector of face rectangles
 - (void)displayFaces:(const std::vector<cv::Rect> &)faces 
-       forVideoFrame:(CGRect)frame 
-    videoOrientation:(AVCaptureVideoOrientation)videOrientation
+       forVideoRect:(CGRect)rect 
+    videoOrientation:(AVCaptureVideoOrientation)videoOrientation
 {
     NSArray *sublayers = [NSArray arrayWithArray:[self.view.layer sublayers]];
     int sublayersCount = [sublayers count];
@@ -152,7 +152,7 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
 	}	
     
     // Create transform to convert from vide frame coordinate space to view coordinate space
-    CGAffineTransform t = [self affineTransformForVideoFrame:frame orientation:videOrientation];
+    CGAffineTransform t = [self affineTransformForVideoFrame:rect orientation:videoOrientation];
 
     for (int i = 0; i < faces.size(); i++) {
   
