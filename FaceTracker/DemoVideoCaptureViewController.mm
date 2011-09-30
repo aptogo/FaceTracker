@@ -108,9 +108,8 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
     CGFloat temp = rect.size.width;
     rect.size.width = rect.size.height;
     rect.size.height = temp;
-    videOrientation = AVCaptureVideoOrientationPortrait;
     
-    if (_camera == 0)
+    if (videOrientation == AVCaptureVideoOrientationLandscapeRight)
     {
         // flip around y axis for back camera
         cv::flip(mat, mat, 1);
@@ -119,10 +118,12 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
         // Front camera output needs to be mirrored to match preview layer so no flip is required here
     }
        
+    videOrientation = AVCaptureVideoOrientationPortrait;
+    
     // Detect faces
     std::vector<cv::Rect> faces;
     
-    _faceCascade.detectMultiScale(mat, faces, 1.1, 2, kHaarOptions, cv::Size(50, 50));
+    _faceCascade.detectMultiScale(mat, faces, 1.1, 2, kHaarOptions, cv::Size(60, 60));
     
     // Dispatch updating of face markers to main queue
     dispatch_sync(dispatch_get_main_queue(), ^{
