@@ -179,9 +179,8 @@ const int kFrameTimeBufferSize = 5;
             // Create device input
             NSError *error = nil;
             AVCaptureDeviceInput *input = [[AVCaptureDeviceInput alloc] initWithDevice:_captureDevice error:&error];
-            
             [_captureSession addInput:input];
-            [[[_videoOutput connections] objectAtIndex:0] setVideoMirrored:NO];
+            
             [_captureSession commitConfiguration];
         }
     }
@@ -439,8 +438,6 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     [_videoPreviewLayer setFrame:self.view.bounds];
     _videoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.view.layer insertSublayer:_videoPreviewLayer atIndex:0];
-    
-    [[[_videoOutput connections] objectAtIndex:0] setVideoMirrored:NO];
     
     return YES;
 }
