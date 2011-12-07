@@ -49,7 +49,7 @@ const int kFrameTimeBufferSize = 5;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         _camera = -1;
-        _qualityPreset = AVCaptureSessionPreset640x480;
+        _qualityPreset = AVCaptureSessionPresetMedium;
         _captureGrayscale = YES;
         
         // Create frame time circular buffer for calculating averaged fps
@@ -418,7 +418,14 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     // For grayscale mode, the luminance channel from the YUV fromat is used
     // For color mode, BGRA format is used
-    OSType format = (grayscale)? kCVPixelFormatType_420YpCbCr8BiPlanarFullRange : kCVPixelFormatType_32BGRA;
+    OSType format = kCVPixelFormatType_32BGRA;
+
+    // Check YUV format is available before selecting it (iPhone 3 does not support it)
+    if (grayscale && [_videoOutput.availableVideoCVPixelFormatTypes containsObject:
+                      [NSNumber numberWithInt:kCVPixelFormatType_420YpCbCr8BiPlanarFullRange]]) {
+        format = kCVPixelFormatType_420YpCbCr8BiPlanarFullRange;
+    }
+    
     _videoOutput.videoSettings = [NSDictionary dictionaryWithObject:[NSNumber numberWithUnsignedInt:format]
                                                              forKey:(id)kCVPixelBufferPixelFormatTypeKey];
     

@@ -35,7 +35,7 @@ const int kHaarOptions =  CV_HAAR_FIND_BIGGEST_OBJECT | CV_HAAR_DO_ROUGH_SEARCH;
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         self.captureGrayscale = YES;
-        self.qualityPreset = AVCaptureSessionPreset640x480;
+        self.qualityPreset = AVCaptureSessionPresetMedium;
     }
     return self;
 }
